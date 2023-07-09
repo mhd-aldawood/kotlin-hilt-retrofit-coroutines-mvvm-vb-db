@@ -3,8 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1265" />
+        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/drawable/divider.xml" value="0.1" />
+        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1265" />
+        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/drawable/iv_background.xml" value="0.1715" />
+        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/drawable/toolbar_background.xml" value="0.1" />
+        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/layout/activity_detailed.xml" value="0.30952380952380953" />
+        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/layout/activity_products.xml" value="0.16510416666666666" />
+        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/layout/button_background.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/layout/item_layout.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/layout/product_layout.xml" value="0.1" />
+        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.113" />
+        <entry key="..\:/Users/Mohamad Aldawood/AndroidStudioProjects/hilt/app/src/main/res/xml/button_background.xml" value="0.14010416666666667" />
       </map>
     </option>
   </component>

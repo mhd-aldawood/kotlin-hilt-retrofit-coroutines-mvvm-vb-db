@@ -9,6 +9,8 @@ plugins {
 apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 android {
+
+
     compileSdk 33
 
     defaultConfig {
@@ -25,14 +27,14 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', 'BASE_URL', '"https://5e510330f2c0d300147c034c.mockapi.io/'
+            buildConfigField 'String', 'BASE_URL', '"https://5e510330f2c0d300147c034c.mockapi.io/"'
+
 
         }
-
             debug {
-                buildConfigField 'String', 'BASE_URL', '"https://5e510330f2c0d300147c034c.mockapi.io/"'
+                buildConfigField 'String', 'BASE_URL', '"https://fakestoreapi.com/"'
             }
 
 

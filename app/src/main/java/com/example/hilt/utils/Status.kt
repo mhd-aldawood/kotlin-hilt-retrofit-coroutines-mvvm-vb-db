@@ -1,4 +1,4 @@
-package com.mindorks.framework.mvvm.utils
+package com.example.hilt.utils
 
 enum class Status {
     SUCCESS,

@@ -1,7 +1,5 @@
 package com.example.hilt.utils
 
-import com.mindorks.framework.mvvm.utils.Status
-
 data class Resource<out T>(val status: Status, val data: T?, val message: String?) {
 
     companion object {

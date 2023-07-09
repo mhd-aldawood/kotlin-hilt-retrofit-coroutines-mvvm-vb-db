@@ -1,12 +1,10 @@
 package com.mindorks.framework.mvvm.ui.main.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.hilt.R
-import com.example.hilt.data.model.User
+import com.example.hilt.data.model.reuqest.User
 import com.example.hilt.databinding.ItemLayoutBinding
 import kotlinx.android.synthetic.main.item_layout.view.*
 
@@ -35,11 +33,11 @@ DataViewHolder(ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), pa
     }
     class DataViewHolder(itemView: ItemLayoutBinding) : RecyclerView.ViewHolder(itemView.root) {
         fun bind(user: User) {
-            itemView.textViewUserName.text = user.name
-            itemView.textViewUserEmail.text = user.email
-            Glide.with(itemView.imageViewAvatar.context)
-                .load(user.avatar)
-                .into(itemView.imageViewAvatar)
+//            itemView.textViewUserName.text = user.name
+//            itemView.textViewUserEmail.text = user.email
+//            Glide.with(itemView.imageViewAvatar.context)
+//                .load(user.avatar)
+//                .into(itemView.imageViewAvatar)
         }
     }
 }
