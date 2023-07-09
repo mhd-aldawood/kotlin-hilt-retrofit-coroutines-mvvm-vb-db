@@ -10,14 +10,11 @@ import retrofit2.http.POST
 
 interface ApiService {
 
-    @GET("/auth/login")
-    suspend fun getUsers(): Response<List<User>>
-
-
+    // Function to make a user login API request
     @POST("/auth/login")
     suspend fun userLogin(@Body user: User): Response<Token>
 
-
+    // Function to retrieve a list of products
     @GET("/products")
     suspend fun getProducts(): Response<List<Product>>
 

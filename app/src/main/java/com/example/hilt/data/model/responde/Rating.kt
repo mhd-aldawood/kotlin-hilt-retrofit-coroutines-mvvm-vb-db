@@ -4,15 +4,22 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.squareup.moshi.Json
 
-data class Rating(@Json(name = "rate") var rate  : Double? = null,
-                  @Json(name = "count") var count : Int?    = null):Parcelable {
+data class Rating(
+    // Property representing the rating value
+    @Json(name = "rate")
+    var rate: Double? = null,
+
+    // Property representing the count of ratings
+    @Json(name = "count")
+    var count: Int? = null
+) : Parcelable {
+
     constructor(parcel: Parcel) : this(
         parcel.readDouble(),
         parcel.readInt()
     )
 
-    override fun describeContents():Int = 0
-
+    override fun describeContents(): Int = 0
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
         rate?.let { dest.writeDouble(it) }

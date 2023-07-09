@@ -1,6 +1,5 @@
 package com.example.hilt.di.module
 
-
 import com.example.hilt.BuildConfig
 import com.example.hilt.data.api.ApiHelper
 import com.example.hilt.data.api.ApiHelperImpl
@@ -20,47 +19,43 @@ import dagger.hilt.components.SingletonComponent
 @InstallIn(SingletonComponent::class)
 class ApplicationModule {
 
+    // Provides the base URL used for Retrofit
     @Provides
     fun provideBaseUrl() = BuildConfig.BASE_URL
 
+    // Provides the OkHttpClient with logging interceptor for debug mode
     @Provides
     @Singleton
-    fun provideOkHttpClient() = if (BuildConfig.DEBUG) {
+    fun provideOkHttpClient(): OkHttpClient = if (BuildConfig.DEBUG) {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .build()
-    } else OkHttpClient
-        .Builder()
-        .build()
+    } else OkHttpClient.Builder().build()
 
-
+    // Provides the Retrofit instance
     @Provides
     @Singleton
-    fun provideRetrofit(
-        okHttpClient: OkHttpClient,
-        BASE_URL: String
-    ): Retrofit =
+    fun provideRetrofit(okHttpClient: OkHttpClient, baseUrl: String): Retrofit =
         Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create())
-            .baseUrl(BASE_URL)
+            .baseUrl(baseUrl)
             .client(okHttpClient)
             .build()
 
+    // Provides the ApiService interface implementation
     @Provides
     @Singleton
     fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
-
-    //
-//    @Provides
-//    @Singleton
-//    fun provideApiHelper(apiHelper: ApiHelperImpl): ApiHelper = apiHelper
 }
+
 @Module
 @InstallIn(SingletonComponent::class)
 interface Provider {
+
+    // Binds the ApiHelperImpl class to the ApiHelper interface
     @Binds
     @Singleton
-    fun providerHelper(apiHelper: ApiHelperImpl): ApiHelper
+    fun provideHelper(apiHelper: ApiHelperImpl): ApiHelper
 }

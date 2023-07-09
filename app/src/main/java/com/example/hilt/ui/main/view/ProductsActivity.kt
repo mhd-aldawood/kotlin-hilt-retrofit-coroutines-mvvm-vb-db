@@ -21,29 +21,53 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ProductsActivity : AppCompatActivity(), OnItemClickListener {
-    private val productViewModel : ProductViewModel by viewModels()
-    lateinit var binding:ActivityProductsBinding
+
+    // Initialize the ProductViewModel using viewModels delegate
+    private val productViewModel: ProductViewModel by viewModels()
+
+    // Initialize the binding variable
+    lateinit var binding: ActivityProductsBinding
+
+    // Initialize the adapter
     private lateinit var adapter: ProductAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= DataBindingUtil.setContentView(this,R.layout.activity_products)
-        binding.productViewModel=productViewModel
-        binding.lifecycleOwner=this
+
+        // Set the layout using DataBindingUtil
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_products)
+        binding.productViewModel = productViewModel
+        binding.lifecycleOwner = this
+
+        // Set the toolbar
         setSupportActionBar(findViewById(R.id.toolbar))
+
+        // Setup the UI components
         setupUI()
+
+        // Setup the observer for fetching product list
         setupObserver()
+
+        // Fetch the product list
         getProductsList()
     }
+
     private fun getProductsList() {
         productViewModel.fetchProduct()
     }
+
     private fun setupUI() {
+        // Set the RecyclerView layout manager
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = ProductAdapter(arrayListOf(),this)
-        binding.recyclerView.addItemDecoration( SimpleDividerItemDecoration(this));
+
+        // Initialize and set the adapter to the RecyclerView
+        adapter = ProductAdapter(arrayListOf(), this)
+        binding.recyclerView.addItemDecoration(SimpleDividerItemDecoration(this))
         binding.recyclerView.adapter = adapter
     }
+
     private fun setupObserver() {
+        // Observe the products LiveData and update the UI accordingly
         productViewModel.products.observe(this, Observer {
             when (it.status) {
                 Status.SUCCESS -> {
@@ -56,22 +80,24 @@ class ProductsActivity : AppCompatActivity(), OnItemClickListener {
                     binding.recyclerView.visibility = View.GONE
                 }
                 Status.ERROR -> {
-                    //Handle Error
+                    // Handle Error
                     binding.progressBar.visibility = View.GONE
                     Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
                 }
             }
         })
     }
+
     private fun renderList(product: List<Product>) {
+        // Add the product list to the adapter and update the RecyclerView
         adapter.addData(product)
         adapter.notifyDataSetChanged()
     }
 
     override fun onClick(product: Product) {
-    var intent=Intent(this,DetailedActivity::class.java)
-        intent.putExtra("obj",product)
+        // Handle the click event on a product item
+        val intent = Intent(this, DetailedActivity::class.java)
+        intent.putExtra("obj", product)
         startActivity(intent)
     }
-
 }

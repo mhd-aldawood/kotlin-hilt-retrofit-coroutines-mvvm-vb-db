@@ -6,8 +6,10 @@ import javax.inject.Inject
 
 class MainRepository @Inject constructor(private val apiHelper: ApiHelper) {
 
-    suspend fun getUsers() =  apiHelper.getUsers()
-    suspend fun userLogin(user: User)=apiHelper.userLogin(user)
-    suspend fun getProducts()=apiHelper.getProducts()
+    // Function to make a user login API request using the injected ApiHelper instance
+    suspend fun userLogin(user: User) = apiHelper.userLogin(user)
+
+    // Function to retrieve a list of products using the injected ApiHelper instance
+    suspend fun getProducts() = apiHelper.getProducts()
 
 }
