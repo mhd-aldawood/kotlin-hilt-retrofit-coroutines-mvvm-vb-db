@@ -34,13 +34,9 @@ class MainActivity : AppCompatActivity() {
         requestPermission()
         setupUI()
         setupObserver()
-        makeApiCall()
 
     }
 
-    private fun makeApiCall() {
-        mainViewModel.fetchUsers()
-    }
 
     private fun requestPermission() {
         ActivityCompat.requestPermissions(this,
